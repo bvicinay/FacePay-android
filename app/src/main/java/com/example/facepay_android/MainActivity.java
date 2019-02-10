@@ -144,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
 
                         lastPic = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 
+                        FaceHandler fh = new FaceHandler();
+                        fh.detectAndFrame(lastPic);
                         launchPayScreen(lastPic);
 
                         Log.d(TAG, "finished the thing");
@@ -343,10 +345,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void launchPayScreen(Bitmap img) {
         Intent intent = new Intent(this, PayActivity.class);
-        ByteArrayOutputStream bStream = new ByteArrayOutputStream();
-        img.compress(Bitmap.CompressFormat.PNG, 100, bStream);
-        byte[] byteArray = bStream.toByteArray();
-        intent.putExtra("Image", byteArray);
+        //ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+        //img.compress(Bitmap.CompressFormat.JPEG, 100, bStream);
+        //byte[] byteArray = bStream.toByteArray();
+        //intent.putExtra("Image", byteArray);
         startActivity(intent);
         finish();
     }

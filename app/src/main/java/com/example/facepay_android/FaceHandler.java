@@ -15,6 +15,8 @@ import com.microsoft.projectoxford.face.contract.*;
 
 public class FaceHandler {
 
+    public static Bitmap lastImage;
+
     private String TAG = "FaceHandler";
 
     // Replace `<API endpoint>` with the Azure region associated with
@@ -34,6 +36,8 @@ public class FaceHandler {
 
     public FaceHandler() {
 
+
+
         setup();
 
     }
@@ -51,6 +55,7 @@ public class FaceHandler {
 // Frame faces after detection.
 
     public void detectAndFrame(final Bitmap imageBitmap) {
+        FaceHandler.lastImage = imageBitmap;
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
         ByteArrayInputStream inputStream =

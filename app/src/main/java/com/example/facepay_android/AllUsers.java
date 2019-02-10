@@ -8,13 +8,13 @@ public class AllUsers {
     public static HashMap<String, AppUser> users;
 
     public AllUsers() {
-        /*
-        AppUser borja = new AppUser();
-        AppUser colton = new AppUser();
-        AppUser ed = new AppUser();
-        AppUser diego = new AppUser();
+
+        AppUser borja = new AppUser("borja", "Borja Vicinay", "stripe_knows");
+        AppUser colton = new AppUser("colton", "Colton Mack", "stripe_knows");
+        AppUser ed = new AppUser("Ed", "Edward Bateh", "you just got educated!");
+        AppUser diego = new AppUser("diego", "Diego Fernandez", "diegbro");
         addUsers(borja, colton, ed, diego);
-        */
+
 
     }
 
