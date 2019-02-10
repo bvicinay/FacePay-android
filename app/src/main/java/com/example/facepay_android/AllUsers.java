@@ -8,10 +8,26 @@ public class AllUsers {
     public static HashMap<String, AppUser> users;
 
     public AllUsers() {
+        AppUser borja = new AppUser();
+        AppUser colton = new AppUser();
+        AppUser ed = new AppUser();
+        AppUser diego = new AppUser();
+
+        addUsers(borja, colton, ed, diego);
 
     }
 
-    public void addUser(AppUser new_user) {
-        this.users.add(new_user);
+    public static void addUsers(AppUser... users) {
+        for (AppUser u : users) {
+            addUser(u);
+        }
+    }
+    public static void addUser(AppUser new_user) {
+        AllUsers.users.put(new_user.getId(), new_user);
+    }
+
+    public static AppUser getUser(String uid) {
+
+        return AllUsers.users.get(uid);
     }
 }
