@@ -45,8 +45,27 @@ public class PayActivity extends AppCompatActivity {
                 sendPayment();
             }
         });
+        Request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makePaymentRequest();
+            }
+        });
+        Return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                takeNewPhoto();
+            }
+        });
     }
+
     public void sendPayment(){
+
+    }
+    public void makePaymentRequest(){
+
+    }
+    public void takeNewPhoto(){
 
     }
 
