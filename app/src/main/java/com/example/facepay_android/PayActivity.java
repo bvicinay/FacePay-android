@@ -49,6 +49,6 @@ public class PayActivity extends AppCompatActivity {
     public void sendPayment(){
 
     }
-    
+
 }
 
