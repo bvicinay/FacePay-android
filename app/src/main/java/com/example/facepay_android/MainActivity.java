@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getPicture();
+                launchPayScreen();
             }
         });
         Log.d(TAG, "starting the app");
@@ -132,12 +133,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 void save(byte[] bytes)
                 {
-                    File file12=getOutputMediaFile();
-                    OutputStream outputStream=null;
+                    //File file12=getOutputMediaFile();
+                    //OutputStream outputStream=null;
                     try
                     {
-                        outputStream=new FileOutputStream(file12);
-                        outputStream.write(bytes);
+                        //outputStream=new FileOutputStream(file12);
+                        //outputStream.write(bytes);
 
                         lastPic = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 
@@ -149,8 +150,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }finally {
                         try {
-                            if (outputStream != null)
-                                outputStream.close();
+
                         }catch (Exception e){}
                     }
                 }
@@ -335,6 +335,10 @@ public class MainActivity extends AppCompatActivity {
         mediaFile = new File(mediaStorageDir.getPath() + File.separator
                 + "IMG_" + timeStamp + ".jpg");
         return mediaFile;
+    }
+
+    public void launchPayScreen() {
+
     }
 
     private Activity getOuter() {
