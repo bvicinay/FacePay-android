@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraCaptureSession;
@@ -49,6 +51,8 @@ import java.util.logging.LogRecord;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Bitmap lastPic;
+
     private String TAG = "CameraActivity";
     private Size previewsize;
     private Size jpegSizes[]=null;
@@ -78,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 getPicture();
             }
         });
+        Log.d(TAG, "starting the app");
     }
     void getPicture()
     {
@@ -133,6 +138,12 @@ public class MainActivity extends AppCompatActivity {
                     {
                         outputStream=new FileOutputStream(file12);
                         outputStream.write(bytes);
+
+                        lastPic = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+                        Log.d(TAG, "finished the thing");
+
+
                     }catch (Exception e)
                     {
                         e.printStackTrace();
