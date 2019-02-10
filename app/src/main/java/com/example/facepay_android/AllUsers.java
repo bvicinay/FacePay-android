@@ -11,7 +11,7 @@ public class AllUsers {
 
     }
 
-    public void addUser(AppUser new_user) {
-        this.users.add(new_user);
-    }
+    //public void addUser(AppUser new_user) {
+        //this.users.add(new_user);
 }
+

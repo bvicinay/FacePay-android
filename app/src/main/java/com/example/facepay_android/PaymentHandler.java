@@ -15,6 +15,6 @@ public class PaymentHandler {
 
     private AppUser getUser(String uid) {
 
-
+        return null;
     }
 }

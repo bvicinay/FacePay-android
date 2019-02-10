@@ -3,6 +3,7 @@ package com.example.facepay_android;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -35,6 +36,8 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -80,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getPicture();
-                launchPayScreen();
             }
         });
         Log.d(TAG, "starting the app");
@@ -141,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
                         //outputStream.write(bytes);
 
                         lastPic = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+                        launchPayScreen(lastPic);
 
                         Log.d(TAG, "finished the thing");
 
@@ -337,8 +341,14 @@ public class MainActivity extends AppCompatActivity {
         return mediaFile;
     }
 
-    public void launchPayScreen() {
-
+    public void launchPayScreen(Bitmap img) {
+        Intent intent = new Intent(this, PayActivity.class);
+        ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+        img.compress(Bitmap.CompressFormat.PNG, 100, bStream);
+        byte[] byteArray = bStream.toByteArray();
+        intent.putExtra("Image", byteArray);
+        startActivity(intent);
+        finish();
     }
 
     private Activity getOuter() {
